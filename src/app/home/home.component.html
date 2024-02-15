@@ -1,0 +1,13 @@
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 50px;">
+    <!-- Use *ngFor here to loop through each food item and create a card -->
+    <div *ngFor="let food of foods" class="card">
+        <!-- Image with fixed height and object-fit -->
+        <img class="listing-photo" [src]="food.imageUrl" alt="Photo of {{food.name}}">
+
+        <div class="card-body">
+            <h5 class="listing-heading">{{ food.name }}</h5>
+            <p class="listing-location">{{ food.price }} EUR</p>
+            <a routerLink="/food/{{food.id}}" class="btn btn-primary">Order now!</a>
+        </div>
+    </div>
+</div>
