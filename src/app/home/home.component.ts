@@ -5,12 +5,16 @@ import { Food } from '../shared/models/Food';
 import { ActivatedRoute } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { GitInfoService } from '../services/git-info.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, HttpClientModule],
+
+  providers: [GitInfoService], // Ensure GitInfoService is provided here if it's not a standalone service
+
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -21,7 +25,7 @@ export class HomeComponent implements OnInit{
  
 
   //injecting GitInfoService
-  gitInfo: any;
+  gitInfo: any = {};
 
 
   constructor(
