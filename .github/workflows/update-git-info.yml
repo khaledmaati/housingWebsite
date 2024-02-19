@@ -14,6 +14,9 @@ jobs:
 
     - name: Commit and Push
       run: |
+        git config --global user.email "khaled.maati@accenture.com"
+        git config --global user.name "khaled maati"
+
         git add src/assets/git-info.json
         git commit -m "Update Git Info"
         git push
