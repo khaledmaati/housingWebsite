@@ -11,6 +11,6 @@ export class GitInfoService {
   constructor(private http: HttpClient) { }
 
   getCommitInfo(): Observable<any> {
-    return this.http.get('src\assets\git-info.json');
+    return this.http.get('/assets/git-info.json');
   }
 }
