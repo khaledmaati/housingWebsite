@@ -1,22 +1,24 @@
-name: Update Git Info
+name: Update Version Info
 
-on:
-  push:
+on: push
 
 jobs:
-  update-git-info:
+  update-version:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # Ensures we have the full history for git commands
 
-    - name: Generate Git Info
-      run: |
-        echo '{ "commitHash": "'$(git rev-parse HEAD)'", "date": "'$(date)'"}' > src\assets\git-info.json
+      - name: Update version.json
+        run: |
+          echo "{\"commitHash\": \"$(git rev-parse HEAD)\", \"commitMessage\": \"$(git log -1 --pretty=%B)\"}" > src/assets/version.json
 
-    - name: Commit and Push
-      run: |
-        
-        git add src\assets\git-info.json
-        git commit -m "Update Git Info"
-        git -c http.extraHeader="AUTHORIZATION: bearer ${{ secrets.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 }}" push
+      - name: Commit and Push
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          git add src/assets/version.json
+          git commit -m "Update version.json with latest Git info" || echo "No changes to commit"
+          git push
