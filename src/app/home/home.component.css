@@ -67,3 +67,20 @@
     background-color: #05a356;
 }
 
+
+
+
+
+
+.version {
+    position: absolute;
+    right: 0px;
+    bottom: 10px;
+    padding: 10px;
+    text-align: right;
+    height: fit-content;
+    width: fit-content;
+    background-color: #f0f0f0; /* Light grey background, adjust as needed */
+    border: 1px solid #ddd; /* Light grey border, adjust as needed */
+    font-family: Arial, sans-serif; /* Default font, adjust as needed */
+}
