@@ -9,19 +9,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      with:
-        repo-token: ${{ secrets.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 }}
         
     - name: Generate Git Info
       run: |
         echo '{ "commitHash": "'$(git rev-parse HEAD)'", "date": "'$(date)'"}' > src/assets/git-info.json
 
     - name: Commit and Push
-      env:
-        PERSONAL_ACCESS_TOKEN: ${{ secrets.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 }}
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
         git add src/assets/git-info.json
         git commit -m "Update Git Info"
-        git push https://x-access-token:${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}@github.com/khaledmaati/uberEats.git
+        git push https://github.com/khaledmaati/uberEats.git
