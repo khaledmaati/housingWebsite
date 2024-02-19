@@ -8,6 +8,7 @@ import { GitInfoService } from '../services/git-info.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
