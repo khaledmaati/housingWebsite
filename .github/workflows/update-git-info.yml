@@ -9,7 +9,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
+      with:
+        repo-token: ${{ secrets.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 }}
+        
     - name: Generate Git Info
       run: |
         echo '{ "commitHash": "'$(git rev-parse HEAD)'", "date": "'$(date)'"}' > src/assets/git-info.json
