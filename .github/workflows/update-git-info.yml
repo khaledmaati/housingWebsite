@@ -22,4 +22,4 @@ jobs:
         git config --global user.name "GitHub Action"
         git add src/assets/git-info.json
         git commit -m "Update Git Info"
-        git push https://${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}@github.com/${uberEats}.git
+        git push https://x-access-token:${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}@github.com/khaledmaati/uberEats.git
