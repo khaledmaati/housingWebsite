@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # Ensures we have the full history for git commands
+            token: ${{ secrets.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 }} # Use the PAT you stored as a secret
 
       - name: Update version.json
         run: |
@@ -17,6 +17,7 @@ jobs:
 
       - name: Commit and Push
         run: |
+        
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Action"
           git add src\assets\git-info.json
