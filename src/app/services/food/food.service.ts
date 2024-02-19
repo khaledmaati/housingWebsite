@@ -8,10 +8,18 @@ export class FoodService {
 
   constructor() { }
 
+  //this searches for food items in the get all method for the food page Component and returns Food
   getFoodById(id: Number): Food{
     return this.getAll().find(food => food.id == id)!;
   }
 
+  getFoodByName(name: string): Food[]{
+
+    return this.getAll().filter(food => food.name.toLowerCase().includes(name.toLowerCase()));
+
+  }
+
+  //this method returns all info of food items for the cards in Home Component
   getAll(): Food[]{
     return[
       {

@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
 
 export class NavbarComponent implements OnInit{
     //Added searchTerm Property
-    searchTerm: String = "";
+    searchTerm: string = "";
 
     constructor(private route:ActivatedRoute, private router: Router){}
 

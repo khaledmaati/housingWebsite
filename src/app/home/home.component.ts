@@ -15,16 +15,21 @@ import { RouterModule } from '@angular/router';
 })
 export class HomeComponent implements OnInit{
 
-  //added foods property
-  foods: Food[] = [];
-  constructor(private foodService: FoodService, private route:ActivatedRoute) {}
+  //injecting food dervice into home componant as a dependency
+  foods: Food[];
+ 
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private foodService: FoodService // Corrected the service injection with proper naming
+    
+  ) {}
 
   //Populated foods property using the gett all method in the food service
   ngOnInit(): void {
 
-    this.route.params.subscribe(params => {
+    this.activatedRoute.params.subscribe(params => {
       if(params['searchTerm'])
-      this.foods = this.foodService.getAll().filter(food => food.name.toLowerCase().includes(params['searchTerm'].toLowerCase()));
+      this.foods = this.foodService.getFoodByName(params['searchTerm'])
       
       else
         this.foods = this.foodService.getAll();

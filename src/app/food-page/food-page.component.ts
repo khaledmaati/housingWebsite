@@ -11,11 +11,16 @@ import { FoodService } from '../services/food/food.service';// Ensure you have a
   styleUrls: ['./food-page.component.css'] // Corrected property name and made it an array
 })
 export class FoodPageComponent implements OnInit {
-  food!: Food;
-  
+
+  //injecting food service into food page componant as a dependency
+  //Why do we inject it differtly from homeComp?
+  //What is activatedRoute?
+
+  food: Food;
   constructor(
     private activatedRoute: ActivatedRoute,
     private foodService: FoodService // Corrected the service injection with proper naming
+    
   ) {
     this.activatedRoute.params.subscribe((params) => {
       if(params['id']) {
