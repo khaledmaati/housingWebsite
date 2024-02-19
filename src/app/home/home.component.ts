@@ -4,6 +4,7 @@ import { FoodService } from '../services/food/food.service';
 import { Food } from '../shared/models/Food';
 import { ActivatedRoute } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { GitInfoService } from '../services/git-info.service';
 
 
 @Component({
@@ -18,11 +19,18 @@ export class HomeComponent implements OnInit{
   //injecting food dervice into home componant as a dependency
   foods: Food[];
  
+
+  //injecting GitInfoService
+  gitInfo: any;
+
+
   constructor(
     private activatedRoute: ActivatedRoute,
-    private foodService: FoodService // Corrected the service injection with proper naming
-    
+    private foodService: FoodService, 
+    private gitInfoService: GitInfoService,
   ) {}
+
+
 
   //Populated foods property using the gett all method in the food service
   ngOnInit(): void {
@@ -34,7 +42,13 @@ export class HomeComponent implements OnInit{
       else
         this.foods = this.foodService.getAll();
 
-    })
+    });
+
+    //Use the service to fetch the Git commit information and store it in a variable.
+    this.gitInfoService.getCommitInfo().subscribe(info => {
+      this.gitInfo = info;
+    });
+
 
   }
 

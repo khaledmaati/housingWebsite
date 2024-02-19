@@ -1,4 +1,12 @@
 <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 50px;">
+   
+   <!-- Add the Git commit information -->
+    Add the Git commit information
+    <div class="git-info" style="position: absolute; bottom: 0; right: 0;">
+        Commit: {{gitInfo.commitHash}} - Date: {{gitInfo.date}}
+    </div>
+
+
     <!-- Use *ngFor here to loop through each food item and create a card -->
     <div *ngFor="let food of foods" class="card">
         <!-- Image with fixed height and object-fit -->
