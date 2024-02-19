@@ -19,6 +19,6 @@ jobs:
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
         
-        git add src/assets/git-info.json
+        git add src\assets\git-info.json
         git commit -m "Update Git Info"
         git -c http.extraHeader="AUTHORIZATION: bearer ${{ secrets.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 }}" push
