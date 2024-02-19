@@ -1,0 +1,23 @@
+name: Update Git Info
+
+on:
+  push:
+
+jobs:
+  update-git-info:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Generate Git Info
+      run: |
+        echo '{ "commitHash": "'$(git rev-parse HEAD)'", "date": "'$(date)'"}' > src/assets/git-info.json
+
+    - name: Commit and Push
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add src/assets/git-info.json
+        git commit -m "Update Git Info"
+        git push
