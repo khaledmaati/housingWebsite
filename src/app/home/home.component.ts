@@ -5,7 +5,7 @@ import { Food } from '../shared/models/Food';
 import { ActivatedRoute } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { GitInfoService } from '../services/git-info.service';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 
 
 
