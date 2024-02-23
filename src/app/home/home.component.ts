@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit{
 
     });
 
-    //Use the service to fetch the Git commit information and store it in a variable.
+    //Use the service to fetch the Git commit information and store it in a variable gitInfo.
     this.gitInfoService.getCommitInfo().subscribe(info => {
       this.gitInfo = info;
     });
