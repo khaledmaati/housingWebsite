@@ -25,4 +25,4 @@ jobs:
         git commit --amend --no-edit # Keeps the same commit message
 
         # After amending your commit
-        git push --force-with-lease
+        git push
