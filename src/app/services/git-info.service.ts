@@ -12,5 +12,5 @@ export class GitInfoService {
 
   getCommitInfo(): Observable<any> {
     return this.http.get('/assets/git-info.json');
-  }
+  } 
 }
