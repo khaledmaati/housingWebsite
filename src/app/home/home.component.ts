@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit{
   //injecting GitInfoService
   gitInfo!: any;
 
- 
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private foodService: FoodService, 
