@@ -7,6 +7,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # Ensure we have the full history for amend
+
 
     - name: Generate Git Info
       run: |
@@ -22,7 +25,13 @@ jobs:
         # git push
 
         # Amend the existing commit
-        git commit --amend --no-edit # Keeps the same commit message
+        # git commit --amend --no-edit # Keeps the same commit message
 
         # After amending your commit
-        git push
+        # git push
+
+
+        # Amending the commit without changing its commit message
+        git commit --amend --no-edit 
+        # Force push is required to update the commit on remote. Use with caution!
+        git push --force-with-lease
