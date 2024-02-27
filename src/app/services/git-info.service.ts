@@ -14,4 +14,3 @@ export class GitInfoService {
     return this.http.get('/assets/git-info.json');
   } 
 }
- 
