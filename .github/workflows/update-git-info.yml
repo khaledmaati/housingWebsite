@@ -1,0 +1,28 @@
+on:
+  push:
+
+jobs:
+  update-git-info:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Generate Git Info
+      run: |
+        echo '{ "commitHash": "'$(git rev-parse HEAD)'", "date": "'$(date)'"}' > src/assets/git-info.json
+
+    - name: Commit and Push
+      run: |
+        git config --global user.email "khaled.maati@accenture.com"
+        git config --global user.name "khaled maati"
+
+        git add src/assets/git-info.json
+        # git commit -m "Update Git Info"
+        # git push
+
+        # Amend the existing commit
+        git commit --amend --no-edit # Keeps the same commit message
+
+        # After amending your commit
+        git push --force-with-lease

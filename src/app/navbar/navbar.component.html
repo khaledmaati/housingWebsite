@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        src="/assets/uber-eats-logo.svg"
+        alt="Bootstrap"
+        width="100"
+        height="24"
+      />
+    </a>
+    <!-- Form submission is now handled by Angular -->
+    <form id="searchForm" class="d-flex" role="search" (ngSubmit)="search()">
+      <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchQuery" name="search"> -->
+      <input
+        class="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        id="searchQuery"
+        [(ngModel)]="searchTerm"
+        name="search"
+      />
+      <button class="btn btn-outline-success" type="submit" (click)="search()">
+        Search
+      </button>
+    </form>
+  </div>
+</nav>

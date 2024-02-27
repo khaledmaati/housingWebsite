@@ -1,0 +1,24 @@
+.figure {
+    display: block; /* Makes the figure a block-level element */
+    margin: 20px auto; /* Centers the figure and adds some spacing around it */
+    max-width: 30%; /* Limits the maximum width to prevent it from being too wide */
+    background-color: #f8f9fa; /* Light background color */
+    padding: 15px; /* Adds some padding inside the figure for spacing */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+    border-radius: 5px; /* Rounds the corners */
+  }
+  
+  .figure-img {
+    width: 100%; /* Makes the image responsive by allowing it to scale with the figure */
+    height: auto; /* Maintains the image's aspect ratio */
+    border-radius: 5px; /* Rounds the corners of the image */
+    margin-bottom: 10px; /* Adds some space between the image and the caption */
+  }
+  
+  .figure-caption {
+    font-size: 14px; /* Sets a smaller font size for the caption */
+    color: #6c757d; /* Sets a lighter color for the caption text */
+    text-align: left; /* Centers the caption text */
+    margin-top: 0; /* Removes any default margin from the top of the caption */
+  }
+  
