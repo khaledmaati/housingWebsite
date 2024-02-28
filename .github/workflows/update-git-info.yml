@@ -12,7 +12,8 @@ jobs:
 
     - name: Generate Git Info
       run: |
-        echo '{ "commitHash": "'$COMMIT_HASH'", "date": "'$COMMIT_DATE'", "message": "'$COMMIT_MESSAGE'" }' > src/assets/git-info.json
+        echo '{ "commitHash": "'$(git rev-parse HEAD)'", "date": "'$(date)'", "message": "'$(git log -1 --pretty=%B | sed ':a;N;$!ba;s/\n/\\n/g')'"}' > src/assets/git-info.json
+
 
     - name: Commit and Push
       run: |
