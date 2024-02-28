@@ -23,15 +23,20 @@ jobs:
     - name: Build
       run: ng build
       # This now should work as Angular CLI is installed globally
-
+        
     - name: Check Build Success
       if: failure() # This step will run only if the previous step fails
       uses: dawidd6/action-send-mail@v3
       with:
-        server_address: smtp.gmail.com
-        server_port: 465
+        server_address: smtp-mail.outlook.com
+        server_port: 587
         username: ${{secrets.EMAIL_USERNAME}}
         password: ${{secrets.EMAIL_PASSWORD}}
+        
+        # EMAIL_USERNAME(zutrzuturztfuztfu@outlook.com)
+        # EMAIL_PASSWORD(@igcdkzudsagdi)
+        
+
         subject: Build Failed
         body: The production build failed. Please check the GitHub Actions logs for more details.
         to: khaled.maati@accenture.com
