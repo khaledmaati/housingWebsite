@@ -16,6 +16,13 @@ jobs:
 
     - name: Install Angular CLI
       run: npm install -g @angular/cli
+      
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build
+      run: ng build --prod
+      # This now should work as Angular CLI is installed globally
 
     - name: Check Build Success
       if: failure() # This step will run only if the previous step fails
@@ -26,7 +33,6 @@ jobs:
         username: ${{secrets.EMAIL_USERNAME}}
         password: ${{secrets.EMAIL_PASSWORD}}
         subject: Build Failed
-        # Customize the body as needed
         body: The production build failed. Please check the GitHub Actions logs for more details.
         to: khaled.maati@accenture.com
         from: GitHub Actions <noreply@github.com>
