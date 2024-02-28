@@ -21,6 +21,6 @@ jobs:
 
         git add src/assets/git-info.json
         # Amending the commit without changing its commit message
-        git commit --amend --no-edit 
+        git commit --amend --no-edit
         # Force push is required to update the commit on remote. Use with caution!
         git push --force-with-lease
